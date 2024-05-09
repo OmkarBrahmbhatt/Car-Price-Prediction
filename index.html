@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Price Prediction Model</title>
+    <style>
+        /* Color Scheme */
+        :root {
+            --primary-color: #3498db; /* blue */
+            --secondary-color: #f1c40f; /* orange */
+            --background-color: #f9f9f9; /* light gray */
+            --text-color: #333; /* dark gray */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            text-align: center;
+            background: linear-gradient(to right, #ff9966 0%, #ff5e62 100%);
+            background-size: cover;
+            animation: gradient 3s ease infinite;
+        }
+        @keyframes gradient {
+        0% {background-position: 0%;}
+        50% {background-position: 100%;}
+        100% {background-position: 0%;}
+        }
+
+        input:focus {
+            box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 0 10px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        button[type="submit"] {
+            transition: all 0.3s ease;
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 1px 0 rgba(0, 0, 0, 0.2), 0 0 2px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .prediction-text {
+            opacity: 0;
+            animation: fadeIn 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        /* Custom Input Icons */
+        input[type="number"] {
+            width: 20%;
+            background-repeat: no-repeat;
+            background-position: right 10px center;
+            padding-right: 40px;
+        }
+
+        input[type="text"] {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-user'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0") 
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input, select {
+            width: 30%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+
+        button[type="submit"] {
+            background-color: var(--secondary-color);
+            color: #fff;
+            margin-top: 20px;
+            padding:10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #fff;
+            color: var(--secondary-color);
+            border: 1px solid var(--secondary-color);
+        }
+
+        @media screen and (min-width: 768px) {
+            main {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+
+            section {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Car Price Prediction Model</h1>
+    </header>
+    <main>
+        <section>
+            <form action="{{ url_for('predict')}}" method="post">
+                <h2>Predictive Analysis</h2>
+                <label for="Year">Year</label>
+                <input id="first" name="Year" type="number" required>
+                <label for="Present_Price">Showroom Price (In lakhs)</label>
+                <input id="second" name="Present_Price" type="text" required>
+                <label for="Kms_Driven">Kilometers Driven</label>
+                <input id="third" name="Kms_Driven" type="number" required>
+                <label for="Owner">Previous Owners (0, 1, or 3)</label>
+                <input id="fourth" name="Owner" type="number" required>
+                <label for="Fuel_Type_Petrol">Fuel Type</label>
+                <select id="fuel" name="Fuel_Type_Petrol" required>
+                    <option value="Petrol">Petrol</option>
+                    <option value="Diesel">Diesel</option>
+                    <option value="CNG">CNG</option>
+                </select>
+                <label for="Seller_Type_Individual">Seller Type</label>
+                <select id="resea" name="Seller_Type_Individual" required>
+                    <option value="Dealer">Dealer</option>
+                    <option value="Individual">Individual</option>
+                </select>
+                <label for="Transmission_Mannual">Transmission Type</label>
+                <select id="research" name="Transmission_Mannual" required>
+                    <option value="Mannual">Manual Car</option>
+                    <option value="Automatic">Automatic Car</option>
+                </select><br>
+                <button id="sub" type="submit">Calculate Selling Price</button>
+            </form>
+        </section>
+        <section>
+            <h3>{{ prediction_text }}</h3>
+        </section>
+    </main>
+</body>
+</html>
