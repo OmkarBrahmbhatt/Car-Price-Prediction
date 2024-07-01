@@ -1,6 +1,27 @@
-This project is a web application built to predict the price of cars using a Random Forest model. The app is hosted using Flask, a lightweight Python web framework.
+Project Description:
 
-Features
+Developed a web application that predicts car prices using a Random Forest machine learning model, hosted with Flask.
 
-Prediction: Users can input various features of a car such as its make,engine type,  year, mileage, etc., and the app will predict the price of the car based on the trained Random Forest model.
-User-friendly Interface: The web interface is designed to be intuitive and easy to use, with clear instructions and input fields.
+Features:
+
+Car Price Prediction:
+
+Users input car details (make, engine type, year, mileage, etc.).
+The app predicts the car's price using a trained Random Forest model.
+User-Friendly Interface:
+
+Intuitive design with clear instructions and input fields for easy navigation.
+Technical Stack:
+
+Backend: Flask, Python
+Machine Learning: Random Forest, Scikit-learn
+Frontend: HTML, CSS, JavaScript
+Data Handling: Pandas, Numpy
+Deployment:
+
+Deployed on a cloud platform for scalability and reliability.
+Version control managed with Git.
+Skills Demonstrated:
+
+Problem-solving, collaboration, and communication in a team setting.
+This web application provides a simple and accurate tool for estimating car prices, aiding users in making informed decisions.
