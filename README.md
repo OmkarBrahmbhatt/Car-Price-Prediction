@@ -13,7 +13,7 @@ User-Friendly Interface:
 Intuitive design with clear instructions and input fields for easy navigation.
 Technical Stack:
 
-Backend: Flask, Python
+Backend: Flask , Python
 Machine Learning: Random Forest, Scikit-learn
 Frontend: HTML, CSS, JavaScript
 Data Handling: Pandas, Numpy
